@@ -10,15 +10,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'export JFROG_CLI_LOG_LEVEL=DEBUG'
+
 - task: JFrogGradle@1
   inputs:
     gradleBuildFile: 'build.gradle'
     tasks: 'artifactoryPublish'
-    artifactoryResolverService: 'arti'
+    artifactoryResolverService: 'arti2'
     sourceRepo: 'sri-android-gradle-dev'
     artifactoryDeployerService: 'arti'
     targetRepo: 'sri-android-gradle-dev'
@@ -30,7 +27,6 @@ steps:
     buildNumber: '$(Build.BuildNumber)'
 - task: JFrogPublishBuildInfo@1
   inputs:
-    artifactoryConnection: 'arti'
+    artifactoryConnection: 'arti2'
     buildName: '$(Build.DefinitionName)'
-  
     buildNumber: '$(Build.BuildNumber)'
