@@ -11,14 +11,15 @@ pool:
 
 steps:
 
-- task: Gradle@2
+- task: JFrogGradle@1
   inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
+    gradleBuildFile: 'build.gradle'
     tasks: 'build'
+    artifactoryResolverService: 'arti2'
+    sourceRepo: 'sri-android-gradle-dev'
+    artifactoryDeployerService: 'arti2'
+    targetRepo: 'sri-android-gradle-dev'
+    useWrapper: true
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
