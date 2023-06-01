@@ -19,7 +19,7 @@ steps:
     sourceRepo: 'sri-android-gradle-dev'
     artifactoryDeployerService: 'arti2'
     targetRepo: 'sri-android-gradle-dev'
-    useWrapper: true
+    useWrapper: false
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
