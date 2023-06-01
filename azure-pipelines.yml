@@ -17,16 +17,10 @@ steps:
     tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti2'
     sourceRepo: 'sri-android-gradle-dev'
-    artifactoryDeployerService: 'arti'
+    artifactoryDeployerService: 'arti2'
     targetRepo: 'sri-android-gradle-dev'
     useWrapper: true
-    deployMavenDesc: false
-    deployIvyDesc: false
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-- task: JFrogPublishBuildInfo@1
-  inputs:
-    artifactoryConnection: 'arti2'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
